@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JulesTok</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>JulesTok</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('upload_form') }}">Upload</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="video-feed">
+            {% for video in videos %}
+            <div class="video-container">
+                <video controls>
+                    <source src="{{ url_for('static', filename='videos/' + video) }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 JulesTok</p>
+    </footer>
+</body>
+</html>
